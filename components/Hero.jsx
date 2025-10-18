@@ -1,22 +1,25 @@
-import React, { useEffect, useRef } from 'react'
+import {useEffect, useRef} from "react";
 
 const Hero = () => {
-    const videoref = useRef();
+    const videoRef = useRef();
 
     useEffect(() => {
-        if(videoref.current) videoref.current.playbackRate = 4
-    })
-  return (
-    <section id='hero' className="h-screen overflow-hidden relative">
-        <div>
-            <h1>MacBook Pro</h1>
-            <img src='./title.png' alt='mac book title'/>
-        </div>
-        <video ref={videoref} src="./videos/hero.mp4" autoPlay muted playsInline />
-        <button>Buy</button> 
-        <p>From $1599 or $133.56/month for 12 months</p>
-    </section>
-  )
-}
+        if(videoRef.current) videoRef.current.playbackRate = 2;
+    }, []);
 
+    return (
+        <section id="hero">
+            <div>
+                <h1 className="pt-20">MacBook Pro</h1>
+                <img src="/title.png" alt="MacBook Title" />
+            </div>
+
+            <video ref={videoRef} src="/videos/hero.mp4" autoPlay muted playsInline />
+
+            <button>Buy</button>
+
+            <p>From $1599 or $133/mo for 12 months</p>
+        </section>
+    )
+}
 export default Hero
