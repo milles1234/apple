@@ -1,21 +1,25 @@
+"use client"
 import React from 'react'
 import clsx from "clsx";
 import useMackbookStore from '../src/store'
 import { Canvas } from '@react-three/fiber'
 import { Box, OrbitControls } from '@react-three/drei';
 import MacbookModel14 from './models/Macbook-14';
-
-import StudioLights from './StudioLights';
+import ModelSwitcher from './models/three/ModelSwitcher';
+import StudioLights from './models/three/StudioLights';
+import { useMediaQuery } from 'react-responsive'
 
 
 
 const PreviewSection = () => {
   const {color, scale, setColor, setScale} = useMackbookStore()
+  const isMobile = useMediaQuery({query: '(max-width: 1024px)'})
+
   return (
     <section id='product-viewer'>
       <h2 >Take a closer look.</h2>
       <div className="controls">
-            <p className='info'>Macbook Pro {scale} in {color}</p>
+            
 
             <div className='flex-center mt-5 gap-5'>
               <div className='color-control'>
@@ -48,8 +52,8 @@ const PreviewSection = () => {
         <p className='text-white text-4xl'>Render Canvas</p>
          <Canvas id="canvas" camera={{ position: [0, 2, 5], fov: 50, near: 0.1, far: 100}}>
                 <StudioLights/>
-                <MacbookModel14 scale= {0.06} position={[0,0,0]}/>
-                <OrbitControls enableZoom={false} />
+                
+                <ModelSwitcher scale={isMobile ?  scale - 0.03 : scale} isMobile={isMobile}/>
             </Canvas>
     </section>
   )
