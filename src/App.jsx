@@ -5,6 +5,7 @@ import PreviewSection from '../components/PreviewSection'
 import './index.css'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/all'
+import ShowCase from '../components/ShowCase'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -15,6 +16,7 @@ const App = () => {
       <Navbar/>
       <Hero/>
       <PreviewSection/>
+      <ShowCase/>
     </main>
   )
 }
