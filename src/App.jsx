@@ -22,9 +22,7 @@ const App = () => {
       <PreviewSection/>
       <ShowCase/>
       <Performance/>
-      {/* <Features/>
-      <Highlights/>
-      <Footer/> */}
+      
     </main>
   )
 }
